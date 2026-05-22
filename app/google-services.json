@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "897238741476",
+    "project_id": "projeto-jhuly",
+    "storage_bucket": "projeto-jhuly.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897238741476:android:12cfbf77d7f8b5d939d7f1",
+        "android_client_info": {
+          "package_name": "br.com.faculdade.imepac"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI9XE20p8Ul6GAuCisWB_9MEtD0x70_WY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

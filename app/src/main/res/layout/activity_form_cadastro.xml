@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".FormCadastro">
+
+    <TextView
+        android:id="@+id/title_cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Cadastre-se"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Container principal (Card branco) -->
+    <View
+        android:id="@+id/containercomponents"
+        style="@style/ContainersComponents"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_cadastro" />
+
+    <!-- Campo Nome -->
+    <EditText
+        android:id="@+id/edit_nome"
+        style="@style/Edit_Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:drawableEnd="@drawable/nome"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@id/containercomponents"
+        app:layout_constraintStart_toStartOf="@id/containercomponents"
+        app:layout_constraintTop_toTopOf="@id/containercomponents" />
+
+    <!-- Campo Email (Abaixo do Nome) -->
+    <EditText
+        android:id="@+id/edit_email"
+        style="@style/Edit_Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:drawableEnd="@drawable/email"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@id/containercomponents"
+        app:layout_constraintStart_toStartOf="@id/containercomponents"
+        app:layout_constraintTop_toBottomOf="@id/edit_nome" />
+
+    <!-- Campo Senha (Abaixo do Email) -->
+    <EditText
+        android:id="@+id/edit_password"
+        style="@style/Edit_Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:drawableEnd="@drawable/senha"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@id/containercomponents"
+        app:layout_constraintStart_toStartOf="@id/containercomponents"
+        app:layout_constraintTop_toBottomOf="@id/edit_email" />
+
+    <!-- Botão Cadastrar (Abaixo da Senha) -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_cadastrar"
+        style="@style/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Cadastrar"
+        app:layout_constraintEnd_toEndOf="@id/containercomponents"
+        app:layout_constraintStart_toStartOf="@id/containercomponents"
+        app:layout_constraintTop_toBottomOf="@id/edit_password" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
