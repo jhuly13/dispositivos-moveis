@@ -53,19 +53,28 @@ class FormCadastro : AppCompatActivity() {
 
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
             .addOnCompleteListener { tarefa ->
+                // Dentro de FormCadastro.kt -> cadastrarUsuario
                 if (tarefa.isSuccessful) {
-                    val snackbar = Snackbar.make(view, "Cadastro realizado com sucesso!", Snackbar.LENGTH_SHORT)
-                    snackbar.setBackgroundTint(Color.BLUE)
-                    snackbar.show()
+                    val usuario = FirebaseAuth.getInstance().currentUser
 
-                    // Ir para a tela de login após sucesso
-                    val telaLogin = Intent(this, FormLogin::class.java)
-                    startActivity(telaLogin)
-                    finish() // Fecha a tela de cadastro para não voltar ao clicar em "voltar"
-                } else {
-                    val snackbar = Snackbar.make(view, "Erro ao cadastrar usuário!", Snackbar.LENGTH_SHORT)
-                    snackbar.setBackgroundTint(Color.RED)
-                    snackbar.show()
+                    // CRIAR A SOLICITAÇÃO DE ATUALIZAÇÃO DE NOME
+                    val profileUpdates = com.google.firebase.auth.userProfileChangeRequest {
+                        displayName = edit_nome.text.toString()
+                    }
+
+                    // APLICAR O NOME AO USUÁRIO
+                    usuario?.updateProfile(profileUpdates)?.addOnCompleteListener { updateTarefa ->
+                        if (updateTarefa.isSuccessful) {
+                            // Agora o nome foi salvo no Firebase!
+                            val snackbar = Snackbar.make(view, "Cadastro realizado com sucesso!", Snackbar.LENGTH_SHORT)
+                            snackbar.setBackgroundTint(Color.BLUE)
+                            snackbar.show()
+
+                            val intent = Intent(this, FormLogin::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                    }
                 }
             }
     }
